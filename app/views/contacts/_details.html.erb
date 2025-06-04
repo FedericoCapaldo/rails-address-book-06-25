@@ -1,3 +1,4 @@
+<%= turbo_frame_tag :contact_details do %>
 <div class="details">
   <h1><%= contact.full_name %></h1>
   <p><%= contact.email %></p>
@@ -8,4 +9,18 @@
     <span class="visually-hidden">Edit</span>
     <i class="fas fa-edit"></i>
   <% end %>
+
+  <%= link_to contact,
+      data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?",
+        turbo_frame: '_top'
+      } do %>
+
+    <span class="visually-hidden">Delete</span>
+    <i class="fas fa-trash"></i>
+
+  <% end %>
+
+<% end %>
 </div>
